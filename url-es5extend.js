@@ -7,10 +7,11 @@ function anaUrl(){
 
 	temp.kv = {};
 	temp.search?
-		temp.search.slice(1).match(regKv).forEach(function(v){
-			let _arrkv = v.match(/([^=]*)=([^&]*)/);
-			temp.kv[_arrkv[1]] = _arrkv[2];
-		}):temp.kv = {};
+	temp.search.slice(1).match(regKv).forEach(function(v){
+		let _arrkv = v.match(/([^=]*)=([^&]*)/);
+		temp.kv[_arrkv[1]] = _arrkv[2];
+	}):
+	temp.kv = {};
 	return temp
 }
 anaUrl.prototype = Object.create(URL.prototype);
@@ -35,7 +36,7 @@ anaUrl.prototype.setkv = function(obj){
 		});
 	this.search = this.search.slice(0,-1);
 };
-anaUrl.prototype.addky = function(obj){
+anaUrl.prototype.addkv = function(obj){
 	//es6
 	let kvall = Object.assign(obj,this.kv);
 	this.setkv(kvall);
