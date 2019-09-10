@@ -24,7 +24,7 @@ class anaUrl extends URL {
 		this.search = '?';
 		Object.keys(obj).forEach(
 			function(k){
-				that.search += that.search + k + '=' + obj[k] + '&'
+				that.search = that.search + k + '=' + obj[k] + '&'
 			});
 		this.search = this.search.slice(0,-1);
 	};
